@@ -1,0 +1,1020 @@
+//----------Vars------------
+//font
+$font-base-size: 14px;
+$spacing-unit: 14px;
+
+//color palette
+$grey-light: #aaa;
+$grey: #333333; //rgba(51, 51, 51, 100)
+//$offwhite: #f1edec; //rgba(241, 237, 236, 100)
+$offwhite: #ededf1;
+
+$teal-dark: #256b53; //rgba(37, 107, 83, 100)
+$teal: #3a8d6f; //rgba(58, 141, 111, 100)
+$teal-light: #61c59b; //rgba(97, 197, 155, 100)
+
+$blue: #68A3DD; //rgba(104,163,221,100)
+$blue-dark: #5788BA; //rgba(87,136,186,100)
+
+$salmon-dark: darken(#be5b6a, 20%);
+$salmon: #be5b6a; //rgba(190, 91, 106, 100)
+
+$indigo-dark: darken(#4f518c, 20%);
+$indigo: #4f518c; //rgba(79, 81, 140, 100)
+
+$purple-dark: darken(#6b2f69, 20%);
+$purple: #6b2f69; //rgba(107, 47, 105, 100) 
+
+//etc
+$drop-shadow-color: rgba(0, 0, 0, 0.4);
+
+//--------bootstrap responsive breakpoint mixin-------
+@mixin breakpoint($point) {
+    @if ($point ==lg) {
+        @media (min-width: 1200px) {
+            @content
+        }
+    }
+
+    @else if ($point ==md) {
+        @media (min-width: 992px) {
+            @content
+        }
+    }
+
+    @else if ($point ==sm) {
+        @media (min-width: 768px) {
+            @content
+        }
+    }
+
+    @else if ($point ==xs) {
+        @media (min-width: 641px) {
+            @content
+        }
+    }
+
+    @else if ($point ==xxs) {
+        @media (min-width: 481px) {
+            @content
+        }
+    }
+
+    @else if ($point ==xxxs) {
+        @media (max-width: 480px) {
+            @content
+        }
+    }
+}
+
+@keyframes bar-in {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: calc(100% + 30px);
+    }
+}
+
+@keyframes pulsate {
+    from {
+        background-color: darken($teal-light, 15%);
+        -moz-box-shadow: 0 0 15px $teal-light;
+        -webkit-box-shadow: 0 0 15px $teal-light;
+        box-shadow: 0 0 15px $teal-light;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$teal-light')";
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$teal-light');
+    }
+
+    to {
+        background-color: $teal-light;
+        -moz-box-shadow: 0 0 30px $teal-light;
+        -webkit-box-shadow: 0 0 30px $teal-light;
+        box-shadow: 0 0 30px $teal-light;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$teal-light')";
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$teal-light');
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 25%, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+//------------Standard Elements-----------------
+body {
+    font-family: 'Merriweather', serif;
+    font-size: $font-base-size;
+    background-color: $offwhite;
+    color: $grey;
+}
+
+/**
+* Set `margin-bottom` to maintain vertical rhythm
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+    font-size: $font-base-size*3.5;
+    line-height: $font-base-size*3.5;
+}
+
+h2 {
+    font-size: $font-base-size*3;
+    line-height: $font-base-size*3;
+}
+
+h3 {
+    font-size: $font-base-size*2.5;
+    line-height: $font-base-size*2.5;
+}
+
+h4 {
+    font-size: $font-base-size*2.25;
+    line-height: $font-base-size*2.25;
+}
+
+h5 {
+    font-size: $font-base-size*2;
+    line-height: $font-base-size*2;
+}
+
+h6 {
+    font-size: $font-base-size*1.5;
+    line-height: $font-base-size*1.5;
+}
+
+a {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+a,
+a:visited,
+a:focus,
+a:active {
+    color: $blue-dark;
+}
+
+a:hover,
+a.active {
+    color: $blue;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+//------------Muss around with Bootstrap--------------
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+//---------------------------Helpers----------------------------
+
+//colors
+.grey-light {
+    color: $grey-light;
+}
+
+.grey {
+    color: $grey;
+}
+
+.offwhite {
+    color: $offwhite;
+}
+
+.teal-dark {
+    color: $teal-dark;
+}
+
+.teal {
+    color: $teal;
+}
+
+.teal-light {
+    color: $teal-light;
+}
+
+.blue-dark {
+    color: $blue-dark;
+}
+
+.blue {
+    color: $blue;
+}
+
+
+.bg-grey {
+    background-color: $grey;
+}
+
+.bg-offwhite {
+    background-color: $offwhite;
+}
+
+.bg-teal-dark {
+    background-color: $teal-dark;
+}
+
+.bg-teal {
+    background-color: $teal;
+}
+
+.bg-teal-light {
+    background-color: $teal-light;
+}
+
+.bg-blue-dark {
+    background-color: $blue-dark;
+}
+
+.bg-blue {
+    background-color: $blue;
+}
+
+.bg-salmon-dark {
+    background-color: $salmon-dark;
+}
+
+.bg-salmon {
+    background-color: $salmon;
+}
+
+.bg-indigo-dark {
+    background-color: $indigo-dark;
+}
+
+.bg-indigo {
+    background-color: $indigo;
+}
+
+.bg-purple-dark {
+    background-color: $purple-dark;
+}
+
+.bg-purple {
+    background-color: $purple;
+}
+
+
+.font-merriweather {
+    font-family: 'Merriweather', serif;
+}
+
+.font-josefin {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.font-14 {
+    font-size: 14px !important;
+}
+
+.font-16 {
+    font-size: 16px !important;
+}
+
+.font-18 {
+    font-size: 18px !important;
+}
+
+.font-20 {
+    font-size: 20px !important;
+}
+
+.font-22 {
+    font-size: 22px !important;
+}
+
+.font-24 {
+    font-size: 24px !important;
+}
+
+.font-26 {
+    font-size: 26px !important;
+}
+
+.font-30 {
+    font-size: 30px !important;
+}
+
+//----------------------Pseudo Material Design-------------------
+.shadow-0 {
+    -moz-box-shadow: 0 0 0 $drop-shadow-color;
+    -webkit-box-shadow: 0 0 0 $drop-shadow-color;
+    box-shadow: 0 0 0 $drop-shadow-color;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=90, Color='$drop-shadow-color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=90, Color='$drop-shadow-color');
+    background: white;
+}
+
+.shadow-5 {
+    -moz-box-shadow: 0 0 5px $drop-shadow-color;
+    -webkit-box-shadow: 0 0 5px $drop-shadow-color;
+    box-shadow: 0 0 5px $drop-shadow-color;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$drop-shadow-color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$drop-shadow-color');
+    background: white;
+}
+
+.shadow-10 {
+    -moz-box-shadow: 0 0 10px $drop-shadow-color;
+    -webkit-box-shadow: 0 0 10px $drop-shadow-color;
+    box-shadow: 0 0 10px $drop-shadow-color;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$drop-shadow-color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$drop-shadow-color');
+    background: white;
+}
+
+.shadow-15 {
+    -moz-box-shadow: 0 0 15px $drop-shadow-color;
+    -webkit-box-shadow: 0 0 15px $drop-shadow-color;
+    box-shadow: 0 0 15px $drop-shadow-color;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=90, Color='$drop-shadow-color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=90, Color='$drop-shadow-color');
+    background: white;
+}
+
+.shadow-20 {
+    -moz-box-shadow: 0 0 20px $drop-shadow-color;
+    -webkit-box-shadow: 0 0 20px $drop-shadow-color;
+    box-shadow: 0 0 20px $drop-shadow-color;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=90, Color='$drop-shadow-color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=90, Color='$drop-shadow-color');
+    background: white;
+}
+
+.shadow-25 {
+    -moz-box-shadow: 0 0 25px $drop-shadow-color;
+    -webkit-box-shadow: 0 0 25px $drop-shadow-color;
+    box-shadow: 0 0 25px $drop-shadow-color;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=90, Color='$drop-shadow-color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=90, Color='$drop-shadow-color');
+    background: white;
+}
+
+.shadow-30 {
+    -moz-box-shadow: 0 0 30px $drop-shadow-color;
+    -webkit-box-shadow: 0 0 30px $drop-shadow-color;
+    box-shadow: 0 0 30px $drop-shadow-color;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=12, Direction=90, Color='$drop-shadow-color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=12, Direction=90, Color='$drop-shadow-color');
+    background: white;
+}
+
+.vignette {
+    position: relative;
+}
+
+.vignette:after {
+    -moz-box-shadow: inset 0 0 10em #666;
+    -webkit-box-shadow: inset 0 0 10em #666;
+    box-shadow: inset 0 0 10em #666;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    content: "";
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+//---------------------Header-----------------------
+#header {
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+
+    @include breakpoint(sm) {
+        text-align: left;
+    }
+
+    h1 {
+        display: block;
+        float: none;
+
+        @include breakpoint(sm) {
+            display: inline-block;
+            float: left;
+        }
+    }
+
+    .title {
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: $grey;
+            text-decoration: none;
+        }
+    }
+
+    .tagline {
+        position: relative;
+        display: block;
+        cursor: default;
+        margin: 0;
+        float: none;
+
+        @include breakpoint(sm) {
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 40px;
+            margin-left: 10px;
+            float: left;
+        }
+
+        >.name {
+            font-size: 20px;
+            font-family: 'Josefin Sans', sans-serif;
+            color: #aaa;
+        }
+
+        .level {
+            display: inline;
+        }
+    }
+}
+
+
+//---------------CODEIVATE STATS CARD-------------------
+.codeivate_stats {
+    width: 300px;
+    top: 35px;
+    left: calc(50% - 150px);
+    position: absolute;
+
+    -webkit-animation: flipInY 0.75s linear 0s alternate 1;
+    -moz-animation: flipInY 0.75s linear 0s alternate 1;
+    -o-animation: flipInY 0.75s linear 0s alternate 1;
+    animation: flipInY 0.75s linear 0s alternate 1;
+
+    background: white;
+    padding: 0 15px 15px 15px;
+    z-index: 100;
+
+    @include breakpoint(sm) {
+        width: 320px;
+        left: -10px;
+    }
+
+    .close {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 30px;
+    }
+
+    .contact {
+        margin-top: 5px;
+
+        span {
+            display: block;
+        }
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: $teal;
+        }
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    >.level {
+        font-size: 12px;
+        color: #aaa;
+        display: inline-block;
+    }
+
+    >.codingstatus {
+        margin: 0px 0 0 5px;
+
+        .coding {
+            font-family: 'Josefin Sans', sans-serif;
+            color: #aaa;
+            margin-top: 3px;
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        .coding_indicator {
+            width: 16px;
+            height: 16px;
+            background-color: #666;
+            border-radius: 50%;
+            position: relative;
+            margin: 5px 5px 5px 5px;
+            display: block;
+            float: left;
+        }
+
+        .coding_indicator.active {
+            background-color: $teal-light;
+            -moz-box-shadow: 0 0 15px $teal-light;
+            -webkit-box-shadow: 0 0 15px $teal-light;
+            box-shadow: 0 0 15px $teal-light;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$teal-light')";
+            filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='$teal-light');
+            -webkit-animation: pulsate 0.25s ease-in 0s alternate infinite;
+            -moz-animation: pulsate 0.25s ease-in 0s alternate infinite;
+            -o-animation: pulsate 0.25s ease-in 0s alternate infinite;
+            animation: pulsate 0.25s ease-in 0s alternate infinite;
+        }
+
+        .coding_indicator:before {
+            content: '';
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border-radius: 50%;
+            background: #555;
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            z-index: -1;
+        }
+
+        .coding_indicator.active:before {
+            background: #666;
+
+        }
+
+        .coding_indicator:after {
+            content: '';
+            width: 75%;
+            height: 50%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+        }
+
+        .coding_indicator.active:after {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    >.langs {
+        width: 100%;
+        float: left;
+        margin-top: 5px;
+
+        .lang {
+            padding: 5px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 12px;
+
+            -moz-box-shadow: 0 1px 1px $drop-shadow-color;
+            -webkit-box-shadow: 0 1px 1px $drop-shadow-color;
+            box-shadow: 0 1px 1px $drop-shadow-color;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=90, Color='$drop-shadow-color')";
+            filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=90, Color='$drop-shadow-color');
+        }
+    }
+}
+
+.flipOutBro {
+    -webkit-animation: flipOutY 0.75s linear 0s alternate 1 !important;
+    -moz-animation: flipOutY 0.75s linear 0s alternate 1 !important;
+    -o-animation: flipOutY 0.75s linear 0s alternate 1 !important;
+    animation: flipOutY 0.75s linear 0s alternate 1 !important;
+}
+
+
+//---------------NAV-------------------
+nav {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0 0 0 0;
+
+    .navbar-toggle {
+        float: none;
+        margin: 0 auto;
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        display: block;
+
+        @include breakpoint(sm) {
+            display: none;
+        }
+
+        #nav-toggle span,
+        #nav-toggle span:before,
+        #nav-toggle span:after {
+            cursor: pointer;
+            border-radius: 1px;
+            background: $grey;
+            height: 5px;
+            width: 40px;
+            position: absolute;
+            display: block;
+            content: '';
+        }
+
+        #nav-toggle span:before {
+            top: -10px;
+        }
+
+        #nav-toggle span:after {
+            bottom: -10px;
+        }
+
+        #nav-toggle span,
+        #nav-toggle span:before,
+        #nav-toggle span:after {
+            transition: all 500ms ease-in-out;
+        }
+    }
+
+    .navbar-toggle:not(.collapsed) {
+        #nav-toggle span {
+            background-color: transparent;
+        }
+
+        #nav-toggle span:before,
+        #nav-toggle span:after {
+            top: 0;
+        }
+
+        #nav-toggle span:before {
+            transform: rotate(45deg);
+        }
+
+        #nav-toggle span:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    #main-navigation {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+
+        li {
+            display: inline-block;
+            margin: 0;
+            padding: 5px 15px 0 15px;
+            width: 100%;
+            text-align: center;
+
+            @include breakpoint(sm) {
+                width: auto;
+
+                &:first-child {
+                    padding-left: 0 !important;
+                }
+            }
+
+            a {
+                text-decoration: none !important;
+                display: inline-block;
+                padding-bottom: 0px;
+
+                .bar {
+                    width: calc(100% + 60px);
+                    height: 4px;
+                    position: absolute;
+                    bottom: -4px;
+                    left: -30px;
+
+                    -moz-box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+                    -webkit-box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+                    box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+
+                    -webkit-animation: fadeOutDown 1s ease 0s 1;
+                    -moz-animation: fadeOutDown 1s ease 0s 1;
+                    -o-animation: fadeOutDown 1s ease 0s 1;
+                    animation: fadeOutDown 1s ease 0s 1;
+
+                }
+
+                overflow:hidden;
+            }
+
+            a,
+            a:visited,
+            a:focus,
+            a:active {
+                color: $grey;
+                font-size: 16px;
+            }
+
+            a.active {
+                .bar {
+                    z-index: 1;
+                    -webkit-animation: initial;
+                    -moz-animation: initial;
+                    -o-animation: initial;
+                    animation: initial;
+                }
+            }
+
+            a:hover {
+                .bar {
+                    z-index: 2;
+                }
+            }
+        }
+
+        $colors: $teal, $blue, $salmon, $indigo, $purple;
+
+        @for $i from 1 through length($colors) {
+            & li:nth-child(#{length($colors)}n+#{$i}) a {
+                &:hover .bar {
+                    -webkit-animation: bar-in 0.5s ease 0s 1;
+                    -moz-animation: bar-in 0.5s ease 0s 1;
+                    -o-animation: bar-in 0.5s ease 0s 1;
+                    animation: bar-in 0.5s ease 0s 1;
+                }
+
+                &:hover,
+                &.active {
+                    color: nth($colors, $i);
+                }
+
+                .bar {
+                    background-color: nth($colors, $i);
+                }
+            }
+        }
+    }
+}
+
+
+//---------------------FOOTER----------------------
+.footer {
+    position: relative;
+    font-size: 12px;
+    padding: 15px 0 5px 0;
+    margin-top: 30px;
+
+    .bar {
+        width: calc(100% + 60px);
+        height: 4px;
+        position: absolute;
+        top: -4px;
+        left: -30px;
+        -moz-box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+        background-color: #aaa;
+    }
+
+    .social {
+        text-align: center;
+        float: left;
+        width: 100%;
+
+        @include breakpoint(sm) {
+            text-align: left;
+            width: 50%;
+        }
+
+        .icons {
+            margin: auto;
+            float: none;
+            display: block;
+            width: 120px;
+            overflow: visible;
+
+            @include breakpoint(sm) {
+                float: left;
+            }
+
+            a {
+                position: relative;
+                display: inline-block;
+                float: left;
+            }
+
+            a:not(:last-child) {
+                margin-right: 5px;
+            }
+
+            .github {
+                width: 32px;
+            }
+
+            .codepen {
+                width: 34px;
+            }
+
+            .email {
+                width: 32px;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    .copy {
+        float: left;
+        width: 100%;
+        text-align: center;
+        color: #aaa;
+
+        @include breakpoint(sm) {
+            margin-top: 10px;
+            text-align: right;
+            width: 50%;
+        }
+    }
+}
+
+
+
+
+#photography-index-page,
+#gallery-page {
+    .album {
+        position: relative;
+        float: none;
+        margin: 0 auto;
+        height: 250px;
+        width: 250px;
+        display: block;
+
+        .link {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .thumb {
+            .polaroid {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                background-color: $grey;
+                background-size: cover;
+                background-position: 50% 50%;
+                width: 150px;
+                height: 150px;
+                border: 5px solid white;
+                border-bottom-width: 20px;
+                box-sizing: border-box;
+            }
+        }
+
+        @for $i from 1 through 4 {
+            $random: random(5);
+
+            .thumb:nth-child(#{$i}) {
+                .polaroid {
+                    top: #{15*$i}px;
+                    left: #{15*$i}px;
+                    -webkit-transform: rotate(#{-5+($i*$random)}deg);
+                    -ms-transform: rotate(#{-5+($i*$random)}deg);
+                    transform: rotate(#{-5+($i*$random)}deg);
+
+                    -moz-animation: splayImages-#{$i} 1s ease-out 0s alternate 1;
+                    -webkit-animation: splayImages-#{$i} 1s ease-out 0s alternate 1;
+                    animation: splayImages-#{$i} 1s ease-out 0s alternate 1;
+                }
+            }
+
+            @keyframes splayImages-#{$i} {
+                0% {
+                    top: 0px;
+                    left: 0px;
+
+                    -webkit-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    top: #{15*$i}px;
+                    left: #{15*$i}px;
+
+                    -webkit-transform: rotate(#{-5+($i*$random)}deg);
+                    -ms-transform: rotate(#{-5+($i*$random)}deg);
+                    transform: rotate(#{-5+($i*$random)}deg);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+//Gallery is included here because it shares the photo album styles
+#gallery-page {
+    margin-top: 4px;
+
+    .gallery {
+        width: 100%;
+        margin-left: 0;
+
+        @include breakpoint(sm) {
+            width: calc(100% + 60px);
+            margin-left: -30px;
+        }
+    }
+
+    .slick-next {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: calc(50% - 16px);
+        right: 30px;
+        z-index: 5;
+    }
+
+    .slick-next:before {
+        font-size: 32px;
+    }
+
+    .slick-prev {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: calc(50% - 16px);
+        left: 30px;
+        z-index: 5;
+    }
+
+    .slick-prev:before {
+        font-size: 32px;
+    }
+
+    .slick-slider {
+        margin-bottom: 15px;
+    }
+
+    .slick-slide {
+        margin-left: 15px;
+    }
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
