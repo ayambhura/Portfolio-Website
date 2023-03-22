@@ -1,2 +1,4 @@
 # Portfolio-Website
-This website is an open-source portfolio.
+This is my personal portfolio website, designed to be the perfect platform for showcasing all of my skills and projects. It's also a showcase of my skills in the field of web development.
+
+In addition to the above, your personal portfolio website can also serve as an online resume, giving potential employers or clients a glimpse into your past work and accomplishments. You can include details about your education, work experience, and professional certifications, along with links to any relevant online profiles or social media accounts. A well-crafted personal portfolio website can also demonstrate your creativity and attention to detail, which are valuable traits in the web development industry. Finally, you can use your personal portfolio website to connect with other professionals in your field, building a network of contacts that can help you grow your career.
